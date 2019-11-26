@@ -1,0 +1,22 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: spring-app
+spec:
+  template:
+    metadata:
+      name: spring-app-v1
+      annotations:
+        # disable istio-proxy injection
+        sidecar.istio.io/inject: "false"
+        # Target 10 in-flight-requests per pod.
+        autoscaling.knative.dev/target: "10"
+    spec:
+      containers:
+      - image: quay.io/famargon/spring-app-reverse-words:latest
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
