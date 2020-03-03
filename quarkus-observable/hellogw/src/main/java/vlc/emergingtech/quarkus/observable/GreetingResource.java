@@ -6,8 +6,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.annotation.Timed;
-import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Path("/hello")
@@ -20,6 +21,8 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Timed
+    @Timeout(value = 1000)
+    @Fallback(fallbackMethod = "helloFallback")
     public String hello() {
         return greetingService.hello();
     }
@@ -27,4 +30,5 @@ public class GreetingResource {
     public String helloFallback() {
         return "hello from fallback.";
     }
+
 }
