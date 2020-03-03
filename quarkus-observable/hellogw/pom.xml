@@ -100,6 +100,20 @@
           </systemProperties>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.eclipse.jkube</groupId>
+        <artifactId>oc-maven-plugin</artifactId>
+        <version>0.1.1</version>
+        <configuration>
+            <enricher>
+              <config>
+                <jkube-service>
+                  <type>NodePort</type>
+                </jkube-service>
+              </config>
+            </enricher>
+        </configuration>
+      </plugin> 
     </plugins>
   </build>
   <profiles>
