@@ -1,5 +1,5 @@
 ##custom - demo secrets
-serverless/scripts
+serverless/scripts*
 quarkus-demo/README.md
 
 ##
