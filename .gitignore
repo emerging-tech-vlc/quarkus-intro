@@ -1,0 +1,21 @@
+##custom - demo secrets
+serverless/scripts
+quarkus-demo/README.md
+
+##
+**/.mvn/wrapper/maven-wrapper.jar
+**/HELP.md
+**/target/
+
+.project
+.classpath
+.settings/
+bin/
+
+**/.project
+**/.classpath
+**/.settings/
+**/bin/
+
+.vscode
+**/.vscode
