@@ -26,7 +26,7 @@ public class GreetingsKafkaProducer {
     Emitter<String> emitter;
 
     public void produce(Greeting greeting) {
-        logger.info("Sending kafka message: {}", greeting.getText());
+        logger.info("Sending greeting {} to kafka", greeting.getText());
         emitter.send(greeting.getText());
     }
     
