@@ -72,6 +72,10 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -105,15 +109,15 @@
         <artifactId>oc-maven-plugin</artifactId>
         <version>0.1.1</version>
         <configuration>
-            <enricher>
-              <config>
-                <jkube-service>
-                  <type>NodePort</type>
-                </jkube-service>
-              </config>
-            </enricher>
+          <enricher>
+            <config>
+              <jkube-service>
+                <type>NodePort</type>
+              </jkube-service>
+            </config>
+          </enricher>
         </configuration>
-      </plugin> 
+      </plugin>
     </plugins>
   </build>
   <profiles>
