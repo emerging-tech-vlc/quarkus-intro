@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-integration-example
+  namespace: vlc-quarkus-integration
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: quarkus-integration-example
+  template:
+    metadata:
+      labels:
+        name: quarkus-integration-example
+    spec:
+      containers:
+        - name: quarkus-integration-example
+          image: quay.io/famargon/quarkus-integration-example:latest
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 9999
+            name: http
+          env:
+          - name: KAFKA.BOOTSTRAP.SERVERS
+            value: aa21e52c8ccf84d0aa529c54abd19c15-630382094.eu-central-1.elb.amazonaws.com:9094

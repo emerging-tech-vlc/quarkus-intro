@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: quarkus-integration-example-route
+  namespace: vlc-quarkus-integration
+spec:
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: quarkus-integration-example-service
+    weight: 100
+  wildcardPolicy: None
