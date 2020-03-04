@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    group: quarkus-observable
+  name: quarkus-observable-server-route
+  namespace: vlc-quarkus-observable
+spec:
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: quarkus-observable-server-service
+    weight: 100
+  tls:
+    termination: edge
+  wildcardPolicy: None

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    group: quarkus-observable
+  name: quarkus-observable-demo-11
+  namespace: vlc-quarkus-observable
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: quarkus-observable-demo-11
+      group: quarkus-observable
+  template:
+    metadata:
+      annotations:
+        kiali.io/runtimes: quarkus
+        prometheus.io/path: /metrics
+        prometheus.io/port: '8080'
+        prometheus.io/scheme: http
+        prometheus.io/scrape: 'true'
+      labels:
+        name: quarkus-observable-demo-11
+        group: quarkus-observable
+        version: 11
+    spec:
+      containers:
+        - name: quarkus-observable-demo
+          image: quay.io/jzuriaga/quarkus-observable-demo:11
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+            name: http
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: http
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: http
+              scheme: HTTP
+          env:
+            - name: QUARKUS_JAEGER_ENDPOINT
+              value: http://jaeger-all-in-one-inmemory-collector:14268/api/traces
+            - name: HELLO_API_MP_REST_URI
+              value: http://quarkus-observable-server-service:8081
