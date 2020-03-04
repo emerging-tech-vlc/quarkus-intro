@@ -1,0 +1,1 @@
+oc get svc integration-cluster-kafka-external-bootstrap -n quarkus-kafka --ignore-not-found -o yaml
