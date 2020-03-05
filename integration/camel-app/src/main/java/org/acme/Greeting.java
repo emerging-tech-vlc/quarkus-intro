@@ -8,7 +8,8 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 @RegisterForReflection
 public class Greeting {
 
-    private String text;
+	private String text;
+	private boolean send;
 
 	public String getText() {
 		return text;
@@ -17,5 +18,13 @@ public class Greeting {
 	public void setText(String text) {
 		this.text = text;
 	}
-    
+
+	public boolean isSend() {
+		return send;
+	}
+
+	public void setSend(boolean send) {
+		this.send = send;
+	}
+	
 }
