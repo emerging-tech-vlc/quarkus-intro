@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     group: quarkus-observable
+    version: latest
   name: quarkus-observable-demo
   namespace: vlc-quarkus-observable
 spec:
@@ -13,9 +14,11 @@ spec:
     matchLabels:
       name: quarkus-observable-demo
       group: quarkus-observable
+      version: latest
   template:
     metadata:
       annotations:
+        sidecar.istio.io/inject: "true"
         kiali.io/runtimes: quarkus
         prometheus.io/path: /metrics
         prometheus.io/port: '8080'
