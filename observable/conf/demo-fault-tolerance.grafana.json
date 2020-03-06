@@ -17,7 +17,7 @@
   "gnetId": 8022,
   "graphTooltip": 0,
   "id": 5,
-  "iteration": 1583424262765,
+  "iteration": 1583493206447,
   "links": [],
   "panels": [
     {
@@ -375,7 +375,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_retries_total[$avg_period])\n / \n(\n   rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_calls_succeeded_not_retried_total[$avg_period])\n + rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_calls_succeeded_retried_total[$avg_period])\n + rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_calls_failed_total[$avg_period])\n)",
+          "expr": "rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_retries_total[$avg_period])\n / \n(\n   rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_callsSucceededNotRetried_total[$avg_period])\n + rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_callsSucceededRetried_total[$avg_period])\n + rate(application_ft_vlc_emergingtech_quarkus_observable_GreetingResource_hello_retry_callsFailed_total[$avg_period])\n)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1242,5 +1242,5 @@
   "timezone": "",
   "title": "MicroProfile Fault Tolerance",
   "uid": "123456",
-  "version": 4
+  "version": 5
 }
