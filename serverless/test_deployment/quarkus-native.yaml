@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-native
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: quarkus-native
+  template:
+    metadata:
+      labels:
+        name: quarkus-native
+    spec:
+      containers:
+        - name: quarkus-native
+          image: quay.io/famargon/quarkus-app-reverse-words-native:latest
+          imagePullPolicy: Always

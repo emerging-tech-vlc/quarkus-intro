@@ -1,0 +1,1 @@
+watch time http "$SPRING/reverse?text=palc"

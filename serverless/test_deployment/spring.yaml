@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-app
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: spring-app
+  template:
+    metadata:
+      labels:
+        name: spring-app
+    spec:
+      containers:
+        - name: spring-app
+          image: quay.io/famargon/spring-app-reverse-words:latest
+          imagePullPolicy: Always

@@ -1,0 +1,1 @@
+watch time http "$QUARKUS_NATIVE/reverse?text=palc"

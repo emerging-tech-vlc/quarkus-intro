@@ -23,5 +23,5 @@ spec:
           - containerPort: 9999
             name: http
           env:
-          - name: KAFKA.BOOTSTRAP.SERVERS
-            value: aa21e52c8ccf84d0aa529c54abd19c15-630382094.eu-central-1.elb.amazonaws.com:9094
+          - name: KAFKA_BOOTSTRAP_SERVERS
+            value: XXXXXX

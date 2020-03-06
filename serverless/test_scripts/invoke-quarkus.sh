@@ -1,0 +1,1 @@
+time http "$QUARKUS_JVM/reverse?text=palc"

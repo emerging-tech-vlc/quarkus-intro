@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-jvm
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: quarkus-jvm
+  template:
+    metadata:
+      labels:
+        name: quarkus-jvm
+    spec:
+      containers:
+        - name: quarkus-jvm
+          image: quay.io/famargon/quarkus-app-reverse-words:latest
+          imagePullPolicy: Always
