@@ -4,7 +4,7 @@ Code source for the demos of the meetup "Quarkus: A New Hope"
 
 ## Slides 
 
-The meetup slides can be found in the pdf [meetup.slides.pdf](./blob/master/meetup.slides.pdf)
+The meetup slides can be found in the pdf [meetup.slides.pdf](./meetup.slides.pdf)
 
 ## Demo projects 
 
