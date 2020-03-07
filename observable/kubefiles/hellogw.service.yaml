@@ -12,5 +12,5 @@ spec:
     protocol: TCP
     targetPort: http
   selector:
-    name: quarkus-observable-demo
+    app: quarkus-observable-demo
   type: LoadBalancer

@@ -25,6 +25,7 @@ spec:
         prometheus.io/scheme: http
         prometheus.io/scrape: 'true'
       labels:
+        app: quarkus-observable-server
         name: quarkus-observable-server
         group: quarkus-observable
         version: latest

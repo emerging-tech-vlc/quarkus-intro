@@ -3,8 +3,9 @@ kind: Deployment
 metadata:
   labels:
     group: quarkus-observable
-    version: 11
-  name: quarkus-observable-server
+    version: v11
+    app: quarkus-observable-server
+  name: quarkus-observable-server-11
   namespace: vlc-quarkus-observable
 spec:
   replicas: 1
@@ -14,7 +15,7 @@ spec:
     matchLabels:
       name: quarkus-observable-server-11
       group: quarkus-observable
-      version: 11
+      version: v11
   template:
     metadata:
       annotations:
@@ -25,9 +26,11 @@ spec:
         prometheus.io/scheme: http
         prometheus.io/scrape: 'true'
       labels:
+        app: quarkus-observable-server
         name: quarkus-observable-server-11
+        app: quarkus-observable-server
         group: quarkus-observable
-        version: 11
+        version: v11
     spec:
       containers:
         - name: quarkus-observable-server

@@ -1,0 +1,25 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: quarkus-observable-demo
+spec:
+  host: quarkus-observable-demo-service
+  subsets:
+  - name: latest
+    labels:
+      version: latest
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: quarkus-observable-server
+spec:
+  host: quarkus-observable-server-service
+  subsets:
+  - name: latest
+    labels:
+      version: latest
+  - name: v11
+    labels:
+      version: v11

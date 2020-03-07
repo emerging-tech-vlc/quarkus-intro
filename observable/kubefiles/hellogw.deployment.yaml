@@ -26,6 +26,7 @@ spec:
         prometheus.io/scrape: 'true'
       labels:
         name: quarkus-observable-demo
+        app: quarkus-observable-demo
         group: quarkus-observable
         version: latest
     spec:

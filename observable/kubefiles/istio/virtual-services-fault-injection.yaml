@@ -1,0 +1,35 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: quarkus-observable-demo
+spec:
+  hosts:
+  - quarkus-observable-demo
+  http:
+  - route:
+    - destination:
+        host: quarkus-observable-demo-service
+        subset: latest
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: quarkus-observable-server
+spec:
+  hosts:
+  - quarkus-observable-server-service
+  http:
+  - fault:
+      abort:
+        httpStatus: 404
+        percent: 75
+    route:
+    - destination:
+        host: quarkus-observable-server-service
+        subset: latest
+  - route:
+    - destination:
+        host: quarkus-observable-server-service
+        subset: latest
+        weight: 100

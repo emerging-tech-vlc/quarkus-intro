@@ -1,0 +1,31 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: quarkus-observable-demo
+spec:
+  hosts:
+  - quarkus-observable-demo
+  http:
+  - route:
+    - destination:
+        host: quarkus-observable-demo-service
+        subset: latest
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: quarkus-observable-server
+spec:
+  hosts:
+  - quarkus-observable-server-service
+  http:
+  - route:
+    - destination:
+        host: quarkus-observable-server-service
+        subset: latest
+      weight: 90
+    - destination:
+        host: quarkus-observable-server-service
+        subset: v11
+      weight: 10
