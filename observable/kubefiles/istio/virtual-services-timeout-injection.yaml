@@ -17,11 +17,19 @@ kind: VirtualService
 metadata:
   name: quarkus-observable-server
 spec:
-  hosts:
-  - quarkus-observable-server-service
+  hosts: quarkus-observable-server-service
   http:
-  - route:
-    - destination:
-        host: quarkus-observable-server-service
-        subset: latest
+    - fault:
+        delay:
+          fixedDelay: 1s
+          percent: 75
+      route:
+        - destination:
+            host: quarkus-observable-server-service
+            subset: latest
+          weight: 100
+        - destination:
+            host: quarkus-observable-server-service
+            subset: v11
       timeout: 2s
+---
