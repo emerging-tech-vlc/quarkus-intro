@@ -23,11 +23,22 @@ spec:
   gateways:
   - quarkus-observable-gateway
   http:
-  - match:
-    - uri:
-        exact: /hello
-    route:
-    - destination:
-        host: quarkus-observable-demo-service
-        port:
-          number: 8080
+    - match:
+        - uri:
+            exact: /hello
+      route:
+        - destination:
+            host: quarkus-observable-demo-service
+            port:
+              number: 8080
+    - match:
+        - uri:
+            prefix: /demo
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: quarkus-observable-demo-service
+            port:
+              number: 8080
+---

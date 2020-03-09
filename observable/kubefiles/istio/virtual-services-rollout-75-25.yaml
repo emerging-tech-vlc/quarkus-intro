@@ -25,5 +25,9 @@ spec:
     - destination:
         host: quarkus-observable-server-service
         subset: latest
-      weight: 100
-
+      weight: 75
+    - destination:
+        host: quarkus-observable-server-service
+        subset: latest
+      weight: 25
+---

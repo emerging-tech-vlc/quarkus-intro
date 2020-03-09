@@ -23,13 +23,10 @@ spec:
   - fault:
       abort:
         httpStatus: 404
-        percent: 75
+        percent: 60
     route:
     - destination:
         host: quarkus-observable-server-service
         subset: latest
-  - route:
-    - destination:
-        host: quarkus-observable-server-service
-        subset: latest
-        weight: 100
+      weight: 100
+---
